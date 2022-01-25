@@ -12,9 +12,10 @@ print("""
 """)
 
 site = input("[+] Target ")
+port = str(input("[+] Target Port "))
 print("[+] Selected Target " +site)
 
-subprocess.check_output(["nmap","-sV","-Pn",site,"-p22","-oX","sonuc.xml"])
+subprocess.check_output(["nmap","-sV","-Pn",site,"-p"+port,"-oX","sonuc.xml"])
 def xmlparse():
     data = xml.parse("sonuc.xml")
     for ver in data.iter("cpe"):
